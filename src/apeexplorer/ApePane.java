@@ -1,11 +1,12 @@
+package apeexplorer;
 
 import java.io.IOException;
 
-import apeexplorer.ApeNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 
@@ -16,6 +17,8 @@ public class ApePane extends Pane {
     public MenuItem exitButton;
     public MenuItem bigPicture;
     public MenuItem about;
+    public MenuButton leftMenu;
+    public MenuButton rightMenu;
     public Button backButton;
     public Button leftButton;
     public Button rightButton;
@@ -23,23 +26,35 @@ public class ApePane extends Pane {
     public Label title;
     public Label body;
 
-    public ApePane(ApeNode node) throws IOException {
-        super();
-        this.getChildren().add(FXMLLoader.load(getClass().getResource("APEFXML.fxml")));
+
+    public ApePane (ApeNode node) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("APEFXML.fxml"));
+        loader.setRoot(this);
+        loader.setController(this);
+        try {
+            loader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        } //try
         head = node;
         current = node;
         exitButton.setOnAction(e -> System.exit(0));
         bigPicture.setOnAction(this::showBigPicture);
         about.setOnAction(this::showAboutInfo);
         backButton.setOnAction(this::traverseBack);
-        backButton.setVisible(false);
+        backButton.setDisable(true);
         leftButton.setOnAction(this::traverseLeft);
         rightButton.setOnAction(this::traverseRight);
+
+        if (current.getLeft() != null) {
+            leftButton = new Button(current.getLeft().getTitle());
+        } //if
+        if (current.getRight() != null) {
+            rightButton = new Button(current.getRight().getTitle());
+        } //if
         addInfo.setOnAction(this::showAddInfo);
-        
-        backButton.setVisible(false);
-        leftButton.setText(node.getLeft().getTitle());
-        rightButton.setText(node.getRight().getTitle());
+        addInfo.setDisable(true);
+        backButton.setDisable(true);
         title.setText(node.getTitle());
         body.setText(node.getBody());
     } //ApePane
@@ -53,27 +68,32 @@ public class ApePane extends Pane {
     private void showAboutInfo(ActionEvent e) {
 
     } //showAboutInfo
+    
+    private void showAddInfo(ActionEvent e) {
+
+    } //showAddInfo
+
+
+
 
     private void traverseBack(ActionEvent e) {
         if (current.getBack() != null) {
-            current = current.getBack();
+            current = current.getLeft();
+            if (current.getLeft() != null) { 
+                leftButton.setText(current.getLeft().getTitle());
+                leftButton.setDisable(false);
+            } else { leftButton.setDisable(true); }
+            if (current.getRight() != null) {
+                rightButton.setText(current.getRight().getTitle());
+                rightButton.setDisable(false);
+            } else { rightButton.setDisable(true); }
             if (current.getBack() != null) {
                 backButton.setText(current.getBack().getTitle());
                 backButton.setDisable(false);
-            } else {backButton.setDisable(true); } //if
-            if (current.getLeft() != null) {
-            leftButton.setText(current.getLeft().getTitle());
-            leftButton.setDisable(false);
-            } else { leftButton.setDisable(true); } //if
-            if (current.getRight() != null) {
-            rightButton.setText(current.getRight().getTitle());
-            rightButton.setDisable(false);
-            } else {rightButton.setDisable(true); }
-            title.setText(current.getTitle());
-            body.setText(current.getBody());
+            } else {backButton.setDisable(true); }
         } //if
-    } //traverseBack
-
+    } //traverseLeft
+    
     private void traverseLeft(ActionEvent e) {
         if (current.getLeft() != null) {
             current = current.getLeft();
@@ -105,20 +125,22 @@ public class ApePane extends Pane {
             backButton.setDisable(false);
         } //if
     } //traverseRight
+    
 
     private void jumpToHead(ActionEvent e) {
         current = head;
         backButton.setText(null);
         backButton.setDisable(true);
-        leftButton.setText(current.getLeft().getTitle());
-        rightButton.setText(current.getRight().getTitle());
+        if (current.getLeft() != null) {
+            leftButton.setText(current.getLeft().getTitle());
+            leftButton.setDisable(false);
+        } else {leftButton.setDisable(true); }
+        if (current.getRight() != null) {
+            rightButton.setText(current.getRight().getTitle());
+            rightButton.setDisable(false);
+        } else {rightButton.setDisable(true); }
         title.setText(current.getTitle());
         body.setText(current.getBody());
-        leftButton.setDisable(false);
-        rightButton.setDisable(false);
     } //jumpToHead
 
-    private void showAddInfo(ActionEvent e) {
-
-    } //showAddInfo
 } //ApePane

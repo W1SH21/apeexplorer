@@ -6,76 +6,58 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.effect.DisplacementMap?>
-<?import javafx.scene.effect.FloatMap?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="925.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem fx:id="exitButton" mnemonicParsing="false" text="Exit"/>
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="View">
-            <items>
-              <MenuItem fx:id="bigPicture" mnemonicParsing="false" text="Big Picture" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="946.0" style="-fx-background-color: #3282aa;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label fx.id="title" alignment="CENTER" prefHeight="75.0" prefWidth="925.0" style="-fx-background-color: #a9a9a9;">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="body" alignment="TOP_LEFT" prefHeight="545.0" prefWidth="925.0" style="-fx-background-color: #FAF9F6;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: bottom;">
-         <children>
-            <Button fx:id="leftButton" mnemonicParsing="false" prefHeight="86.0" prefWidth="260.0" style="-fx-background-color: #3282aa;" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="addInfo" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="451.0" style="-fx-background-color: #FFFFFF;" text="Additional Resources">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <effect>
-                  <DisplacementMap>
-                     <mapData>
-                        <FloatMap />
-                     </mapData>
-                  </DisplacementMap>
-               </effect>
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Button fx:id="rightButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="260.0" style="-fx-background-color: #3282aa;" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-   </children>
-</VBox>
+<fx:root type="javafx.scene.layout.Pane" xmlns:fx="http://javafx.com/fxml">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="925.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <MenuBar>
+            <menus>
+            <Menu mnemonicParsing="false" text="File">
+                <items>
+                <MenuItem fx:id="exitButton" mnemonicParsing="false" text="Exit" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View">
+                <items>
+                <MenuItem fx:id="bigPicture" mnemonicParsing="false" text="Big Picture" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <items>
+                <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
+                </items>
+            </Menu>
+            </menus>
+        </MenuBar>
+        <Button fx:id="backButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="946.0" style="-fx-background-color: #3282aa;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Label fx:id="title" alignment="CENTER" prefHeight="75.0" prefWidth="925.0" style="-fx-background-color: #a9a9a9;">
+            <font>
+                <Font size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="body" alignment="TOP_LEFT" prefHeight="532.0" prefWidth="925.0" style="-fx-background-color: #FAF9F6;">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="128.0" prefWidth="925.0" style="-fx-alignment: bottom;">
+            <children>
+               <Button fx:id="leftButton" mnemonicParsing="false" prefHeight="89.0" prefWidth="385.0" />
+               <Button fx:id="addInfo" alignment="CENTER" mnemonicParsing="false" prefHeight="89.0" prefWidth="170.0" style="-fx-background-color: #3282aa;" text="More Info" textAlignment="CENTER" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="15.0" />
+                  </font>
+               </Button>
+               <Button fx:id="rightButton" alignment="CENTER" mnemonicParsing="false" prefHeight="89.0" prefWidth="385.0" />
+            </children>
+         </HBox>
+    </children>
+    </VBox>
+</fx:root>

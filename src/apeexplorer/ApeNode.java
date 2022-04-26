@@ -1,24 +1,19 @@
 package apeexplorer;
 
+
+
 public class ApeNode {
     String title;
     String body;
-    String leftButtonText;
-    String rightButtonText;
-    String backButtonText;
     ApeNode left;
     ApeNode right;
     ApeNode back;
+    int groupID;
 
-    public ApeNode(String title, String body, String leftButtonText, String rightButtonText, String backButtonText, ApeNode left, ApeNode right, ApeNode back) {
+    public ApeNode(String title, String body, int groupID) {
         this.title = title;
         this.body = body;
-        this.leftButtonText = leftButtonText;
-        this.rightButtonText = rightButtonText;
-        this.backButtonText = backButtonText;
-        this.left = left;
-        this.right = right;
-        this.back = back;
+        this.groupID = groupID;
     } //ApeNode
 
     public ApeNode getLeft() {
@@ -41,16 +36,20 @@ public class ApeNode {
         return body;
     } //getBody
 
-    public String getLeftButtonText() {
-        return leftButtonText;
-    } //getLeftButtonText
+    public int getGroupID() {
+        return groupID;
+    } //getPosition
 
-    public String getRightButtonText() {
-        return rightButtonText;
-    } //getRightButtonText
+    public void setBack(ApeNode back) {
+        this.back = back;
+    } //setBack
 
-    public String getBackButtonText() {
-        return backButtonText;
-    } //getBackButtonText
-    
+    public void setRight(ApeNode right) {
+        this.right = right;
+    } //setRight
+
+    public void setLeft(ApeNode left) {
+        this.left = left;
+    } //setLeft
+
 } //ApeNode

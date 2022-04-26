@@ -1,5 +1,125 @@
-<monke>
-<title>
+<chunk>
 
-</title>
+<monke> KEY: 0
+
+<name>
+Primates
+</name>
+
+<body>
+Level: Order
+Some charictaristics of Primates
+blah blah blah
+</body>
+
 </monke>
+
+</chunk>
+
+
+<chunk>
+
+<monke> KEY: -5
+
+<name>
+Strepsirrhini
+</name>
+
+<body>
+Level: Suborder
+Stupid monke. Big smell
+</body>
+
+</monke>
+</chunk>
+
+<chunk>
+
+<monke> KEY: 5
+
+<name>
+Haplorhini
+</name>
+
+<body>
+Level: Suborder
+Big monke.
+</body>
+
+</monke>
+</chunk>
+
+
+<chunk> 
+
+<monke> KEY: -6
+
+<name>
+Lemuroidea
+</name>
+
+<body>
+Level: Superfamily
+King Julien.
+</body>
+
+</monke>
+</chunk>
+
+<chunk>
+
+<monke> KEY: -4
+
+<name>
+Lorisoidea
+</name>
+
+<body>
+Level: Superfamily
+Not King Julien.
+</body>
+
+</monke>
+</chunk>
+
+
+<chunk>
+
+<monke> KEY: 4
+
+<name>
+Tarsoidea
+</name>
+
+<body>
+Level:Infraorder
+Little bastards
+</body>
+</monke>
+
+<monke> KEY: 4
+<name>
+Ceboidea
+</name>
+
+<body>
+Level: Pavorder/Superfamily
+The Superfamily Ceboidea is the sole member of a Parvorder called the Platyrrhines.
+They are also known as the New World Monkeys.
+</body>
+</monke>
+
+
+<monke> KEY: 4
+
+<name>
+Catarrhines
+</name>
+
+<body>
+Level: Parvorder
+Also known as the Old World Monkeys.
+</body>
+
+</monke>
+</chunk>
